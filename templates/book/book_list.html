@@ -1,7 +1,16 @@
-{% for item in Shelf %}
-<ul>
-    <li>{{ item.title }}</li>
-    <li>{{ item.text }}</li>
-    <li>{{ item.category }}</li>
-</ul>
-{% endfor %}
+{% extends "base.html" %}
+
+{% block title %}書籍一覧{% endblock %}
+
+{% block content %}
+  {% for item in Shelf %}
+    <div class="card">
+      <h5 class="card-header">{{ item.title }}</h5>
+      <div class="card-body">
+        <p class="card-text">{{ item.text }}</p>
+        <a href="{% url 'detail-book' item.pk %}" class="btn btn-primary">詳細へ</a>
+        <h6 class="card-title">{{ item.category }}</h6>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

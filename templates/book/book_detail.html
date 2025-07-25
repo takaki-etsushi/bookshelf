@@ -1,3 +1,16 @@
-{{ Shelf.category }}
-{{ Shelf.title }}
-{{ Shelf.text }}
+{% extends "base.html" %}
+
+{% block title %}書籍詳細{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <h5 class="card-header">{{ Shelf.title }}</h5>
+    <div class="card-body">
+      <p class="card-text">{{ Shelf.text }}</p>
+      <a href="{% url 'list-book' %}" class="btn btn-primary">一覧へ</a>
+      <a href="{% url 'update-book' Shelf.pk %}" class="btn btn-primary">編集する</a>
+      <a href="{% url 'delete-book' Shelf.pk %}" class="btn btn-primary">削除する</a>
+      <h6 class="card-title">{{ Shelf.category }}</h6>
+    </div>
+  </div>
+{% endblock %}
