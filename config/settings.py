@@ -123,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / "staticfiles"  # フォルダ名を変更。str()はPathオブジェクトを使う場合は不要
  # whitenoiseを使用する為、追加
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

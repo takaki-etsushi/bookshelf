@@ -14,10 +14,12 @@ CATEGORY = (
 class Shelf(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
+    thumbnail = models.ImageField(null=True, blank=True)
     category = models.CharField(
         max_length=100,
         choices = CATEGORY,
         )
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
 class Review(models.Model):
     book = models.ForeignKey(Shelf, on_delete=models.CASCADE)
